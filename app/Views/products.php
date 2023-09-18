@@ -6,6 +6,56 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Product</h1>
+    <form action="/save" method="post">
+            <label>ID</label>
+            <input type="text" name= "id" placeholder="ID">
+            <br>
+            <label>UPC</label>
+            <input type="text" name= "upc" placeholder="UPC">
+            <br>
+            <label>Name</label>
+            <input type="text" name= "name" placeholder="Name">
+            <br>
+            <label>Quantity</label>
+            <input type="text" name= "quantity" placeholder="Quantity">
+            <br>
+            <label>Price</label>
+            <input type="text" name= "price" placeholder="Price">
+            <br>
+            <label>Expiry Date</label>
+            <input type="date" name= "expiry_date" >
+            <br>
+            <label>Created</label>
+            <input type="date" name= "created_at">
+            <br>
+            <input type="submit" value="save">
+        </form>
+
+    <h1>Products</h1>
+    <table border ="1">
+        <tr>
+            <th>ID</th>
+            <th>UPC</th>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Expiry Date</th>
+            <th>Created</th>
+            <th>Action</th>
+        </tr>
+        <?php foreach($product as $pr):?>
+            <tr>
+                <td><?= $pr ['id'] ?></td>
+                <td><?= $pr ['upc'] ?></td>
+                <td><?= $pr ['name'] ?></td>
+                <td><?= $pr ['quantity'] ?></td>
+                <td><?= $pr ['price'] ?></td>
+                <td><?= $pr ['expiry_date'] ?></td>
+                <td><?= $pr ['created_at'] ?></td>
+                <td><a href="/delete/<?= $pr['id'] ?>">Delete</a> || <a href="/edit/<?= $pr['id'] ?>">Update</a></td>
+            </tr>
+        
+        <?php endforeach; ?>
+    </table>
 </body>
 </html>
