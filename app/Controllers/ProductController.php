@@ -31,7 +31,7 @@ class ProductController extends BaseController
 
     public function save()
     {
-        
+        $id=$_POST['id'];
         $data = [
         'id' => $this ->request-> getVar('id'), 
         'upc' => $this ->request-> getVar('upc'), 
@@ -41,7 +41,13 @@ class ProductController extends BaseController
         'expiry_date' => $this ->request-> getVar('expiry_date'), 
         'created_at' => $this ->request-> getVar('created_at')
         ];
-        $this->product->insert($data);
+
+        if($id!=null){
+            $this->product->set($data)->where('id' , $id)->update();
+        }
+        else{
+            $this->product->insert($data);
+        }
         return redirect()->to('/product');
     }
 

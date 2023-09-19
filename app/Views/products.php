@@ -8,25 +8,25 @@
 <body>
     <form action="/save" method="post">
             <label>ID</label>
-            <input type="text" name= "id" placeholder="ID">
+            <input type="hidden" name= "id" value="<?= isset($pro['id']) ? $pro['id'] : '' ?>"   >
             <br>
             <label>UPC</label>
-            <input type="text" name= "upc" placeholder="UPC">
+            <input type="text" name= "upc" placeholder="UPC" value="<?= isset($pro['upc']) ? $pro['upc'] : '' ?>"   >
             <br>
             <label>Name</label>
-            <input type="text" name= "name" placeholder="Name">
+            <input type="text" name= "name" placeholder="Name" value="<?= isset($pro['name']) ? $pro['name'] : '' ?>" >
             <br>
             <label>Quantity</label>
-            <input type="text" name= "quantity" placeholder="Quantity">
+            <input type="text" name= "quantity" placeholder="Quantity" value="<?= isset($pro['quantity']) ? $pro['quantity'] : '' ?>" >
             <br>
             <label>Price</label>
-            <input type="text" name= "price" placeholder="Price">
+            <input type="text" name= "price" placeholder="Price" value="<?= isset($pro['price']) ? $pro['price'] : '' ?>" >
             <br>
             <label>Expiry Date</label>
-            <input type="date" name= "expiry_date" >
+            <input type="date" name= "expiry_date" value="<?= isset($pro['expiry_date']) ? $pro['expiry_date'] : '' ?>">
             <br>
             <label>Created</label>
-            <input type="date" name= "created_at">
+            <input type="date" name= "created_at" value="<?= isset($pro['created_at']) ? $pro['created_at'] : '' ?>">
             <br>
             <input type="submit" value="save">
         </form>
